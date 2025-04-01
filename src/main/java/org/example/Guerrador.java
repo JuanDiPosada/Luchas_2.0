@@ -21,17 +21,18 @@ public class Guerrador extends Peleador implements Luchador,Guerrero{
         int dado=(int)(Math.random()*200)+1; //este refiere al daño adicional
 
         System.out.println(aleNum);
+        String mensaje="Puntos def enemigo:";
         if (aleNum!=3){
 
             int danioReal=this.getAtk()+dado;
             if (danioReal > enemigo.getDef()) {
                 enemigo.setHp(enemigo.getHp() - (danioReal - enemigo.getDef()));
-                JOptionPane.showMessageDialog(null, "Puntos def enemigo: " + enemigo.getDef() + "\n" +
+                JOptionPane.showMessageDialog(null, mensaje+ enemigo.getDef() + "\n" +
                         "Daño real: "+danioReal+"\n"+
                         getNombre() + " ataco con la espada, hizo un daño de " + (danioReal - enemigo.getDef()));
 
             } else {
-                JOptionPane.showMessageDialog(null, "Puntos def enemigo: " + enemigo.getDef() + "\n" +
+                JOptionPane.showMessageDialog(null, mensaje+ enemigo.getDef() + "\n" +
                         "Daño real: "+danioReal+"\n"+
                         getNombre() + " ataco con la espada, pero no supero la defensa, daño realizado " + 0);
             }
@@ -53,6 +54,7 @@ public class Guerrador extends Peleador implements Luchador,Guerrero{
 
     @Override
     public void atacar(Peleador enemigo) {
+        String mensaje="Puntos def enemigo:";
         verifBloq();
         int dado = (int) (Math.random() * 2) + 1;
         int danioReal = (dado == 2) ? this.getAtk() * 4 : this.getAtk();
@@ -60,17 +62,17 @@ public class Guerrador extends Peleador implements Luchador,Guerrero{
         if (danioReal>enemigo.getDef()){
             if (dado == 2) {
                 enemigo.setHp(enemigo.getHp() - (danioReal-enemigo.getDef()));
-                JOptionPane.showMessageDialog(null, "Puntos def enemigo: " + enemigo.getDef() + "\n" +
+                JOptionPane.showMessageDialog(null, mensaje + enemigo.getDef() + "\n" +
                         "Daño real: "+danioReal+"\n"+
                         getNombre() + " atacó y su daño se multiplicó x4, hizo un daño de " + (danioReal-enemigo.getDef()));
             } else {
                 enemigo.setHp(enemigo.getHp() - (danioReal- enemigo.getDef()));
-                JOptionPane.showMessageDialog(null, "Puntos def enemigo: " + enemigo.getDef() + "\n" +
+                JOptionPane.showMessageDialog(null, mensaje + enemigo.getDef() + "\n" +
                         "Daño real: "+danioReal+"\n"+
                         getNombre() + " atacó, hizo un daño de " + (danioReal-enemigo.getDef()));
             }
         }else{
-            JOptionPane.showMessageDialog(null,"Puntos def enemigo:"+enemigo.getDef()+"\n"+getNombre()+" ataco pero su daño no supero la defensa, daño realizado "+0);
+            JOptionPane.showMessageDialog(null,mensaje+enemigo.getDef()+"\n"+getNombre()+" ataco pero su daño no supero la defensa, daño realizado "+0);
         }
         JOptionPane.showMessageDialog(null,"la vida del enemigo: "+enemigo.getNombre()+" es de "+enemigo.getHp());
     }//😀

@@ -32,20 +32,21 @@ public class Arcomago extends Peleador implements Mago,Arquero{
         }
 
         if (isDisparo){
+            String mensaje="Puntos def enemigo:";
             if (danioReal>enemigo.getDef()){
                 if (dado==3){
                     enemigo.setHp(enemigo.getHp()-danioReal);
-                    JOptionPane.showMessageDialog(null,"Puntos def enemigo:"+enemigo.getDef()+"\n"+
+                    JOptionPane.showMessageDialog(null,mensaje+enemigo.getDef()+"\n"+
                             "Daño real: "+danioReal+"\n"+
                             getNombre()+" disparo la flecha, hizo un daño critico de "+danioReal);
                 }else{
                     enemigo.setHp(enemigo.getHp()-(danioReal-enemigo.getDef()));
-                    JOptionPane.showMessageDialog(null,"Puntos def enemigo:"+enemigo.getDef()+"\n"+
+                    JOptionPane.showMessageDialog(null,mensaje+enemigo.getDef()+"\n"+
                             "Daño real: "+danioReal+"\n"+
                             getNombre()+" disparo la flecha, hizo un daño de "+(danioReal-enemigo.getDef()));
                 }
             }else{
-                JOptionPane.showMessageDialog(null,"Puntos def enemigo:"+enemigo.getDef()+"\n"+getNombre()+" disparo la flecha, pero la defensa enemiga es mayor, daño :"+0);
+                JOptionPane.showMessageDialog(null,mensaje+enemigo.getDef()+"\n"+getNombre()+" disparo la flecha, pero la defensa enemiga es mayor, daño :"+0);
             }
             isDisparo=false;
         }else{

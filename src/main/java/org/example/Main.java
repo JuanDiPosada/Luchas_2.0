@@ -15,6 +15,7 @@ public class Main {
         String[] opcionesuwu ={"iniciar","salir"};
         int opcionSelec= JOptionPane.showOptionDialog(null,"Bienvenido a peleas uwu","selecionar",JOptionPane.DEFAULT_OPTION,JOptionPane.QUESTION_MESSAGE,null,opcionesuwu,opcionesuwu[0]);
         while (opcionSelec==0){
+            String mensajeS="seleccionar";
             ArrayList<Peleador> opciones=new ArrayList<>();
             opciones.add(new Arcomago("harit",70,100,100));
             opciones.add(new Guerrador("julian",100,80));
@@ -40,7 +41,7 @@ public class Main {
                 JOptionPane.showMessageDialog(null,opciones.get(p2).getNombre()+" gano la pelea");
             }
 
-            opcionSelec= JOptionPane.showOptionDialog(null,"Bienvenido a peleas uwu","selecionar",JOptionPane.DEFAULT_OPTION,JOptionPane.QUESTION_MESSAGE,null,opcionesuwu,opcionesuwu[0]);
+            opcionSelec= JOptionPane.showOptionDialog(null,"Bienvenido a peleas uwu",mensajeS,JOptionPane.DEFAULT_OPTION,JOptionPane.QUESTION_MESSAGE,null,opcionesuwu,opcionesuwu[0]);
 
         }
 
@@ -53,7 +54,7 @@ public class Main {
     public static int[] seleccionPeleador(ArrayList<Peleador> lista){
         //en este metodo se decide quienes son seleccionados
         int[] elegidos= new int[2];
-
+        String mensajeS="seleccionar";
         String[] listaNombresPeleadores=new String[lista.size()];
         for (int i = 0; i < lista.size(); i++) {
             listaNombresPeleadores[i]=lista.get(i).getNombre();
@@ -62,7 +63,7 @@ public class Main {
         int elegida=0;
         while (decicionuno==1){
             //en caso de que se salga sin escoger, se devuelve -1, indice imporible entonces antes verificamos y se sale
-            elegida =JOptionPane.showOptionDialog(null,"escoge tu primer peleador","selecionar",JOptionPane.DEFAULT_OPTION,JOptionPane.QUESTION_MESSAGE,null,listaNombresPeleadores,listaNombresPeleadores[0]);
+            elegida =JOptionPane.showOptionDialog(null,"escoge tu primer peleador",mensajeS,JOptionPane.DEFAULT_OPTION,JOptionPane.QUESTION_MESSAGE,null,listaNombresPeleadores,listaNombresPeleadores[0]);
 
             //aca igual si se sale entraga null, toca hacer que se salga
             decicionuno=Integer.parseInt(JOptionPane.showInputDialog(null,"Informacion del peleador elgido:\n"
@@ -78,7 +79,7 @@ public class Main {
         while (deciciondos==1){
             //en caso de que se salga sin escoger, se devuelve -1, indice imporible entonces antes verificamos y se sale
             do {
-                elegida2 =JOptionPane.showOptionDialog(null,"escoge tu segundo peleador","selecionar",JOptionPane.DEFAULT_OPTION,JOptionPane.QUESTION_MESSAGE,null,listaNombresPeleadores,listaNombresPeleadores[0]);
+                elegida2 =JOptionPane.showOptionDialog(null,"escoge tu segundo peleador",mensajeS,JOptionPane.DEFAULT_OPTION,JOptionPane.QUESTION_MESSAGE,null,listaNombresPeleadores,listaNombresPeleadores[0]);
             }while (elegida==elegida2);
 
             //aca igual si se sale entraga null, toca hacer que se salga
